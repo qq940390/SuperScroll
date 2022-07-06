@@ -18,8 +18,8 @@
  *      #marquee {width:200px;height:50px;overflow:hidden;}
  *      #marquee li{float:left;display:inline;height:50px;}
  * @Usage
- *      $('#marquee .area').gzdswSuperScroll({timeout:3000, interval:3000, step:1, direction:'left', goleft:'.prevbtn', goright:'.nextbtn'}); //只有一个控制按钮的情况
- *      $('#marquee .area').gzdswSuperScroll({timeout:3000, interval:3000, step:1, direction:'left', goleft:'children .prevbtn', goright:'children .nextbtn'});  //有多个滚动，每个滚动都有控制按钮
+ *      $('#marquee .area').superScroll({timeout:3000, interval:3000, step:1, direction:'left', goleft:'.prevbtn', goright:'.nextbtn'}); //只有一个控制按钮的情况
+ *      $('#marquee .area').superScroll({timeout:3000, interval:3000, step:1, direction:'left', goleft:'children .prevbtn', goright:'children .nextbtn'});  //有多个滚动，每个滚动都有控制按钮
  * @options
  *      timeout:3000,           //等待滚动前的时间，单位为毫秒
  *      interval:3000,          //滚动间隔时间，单位：毫秒
@@ -39,8 +39,8 @@
 
 (function($){
 
-    $.fn.gzdswSuperScroll = function(options){
-        var opts = $.extend({},$.fn.gzdswSuperScroll.defaults, options);
+    $.fn.superScroll = function(options){
+        var opts = $.extend({},$.fn.superScroll.defaults, options);
 
         return this.each(function() {
             if($(this).attr('inited') == 'true') return true;   //如果已经初始化，则不再继续
@@ -259,7 +259,7 @@
             }
         });
     };
-    $.fn.gzdswSuperScroll.defaults = {
+    $.fn.superScroll.defaults = {
         timeout:3000,           /*等待滚动前的时间，单位为毫秒*/
         interval:3000,          /*滚动间隔时间，单位：毫秒*/
         autostart:true,         /*是否自动开始滚动*/
@@ -276,8 +276,8 @@
         easing:''               /*jquery easing 效果，默认无效果，使用 easing 效果，一定要确保加载了 jquery.easing 插件*/
     };
 
-    $.fn.gzdswSuperScroll.setDefaults = function(settings) {
-        $.extend( $.fn.gzdswSuperScroll.defaults, settings );
+    $.fn.superScroll.setDefaults = function(settings) {
+        $.extend( $.fn.superScroll.defaults, settings );
     };
 
 })(jQuery);
